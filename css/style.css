@@ -178,9 +178,11 @@ img,svg{max-width:100%;display:block}
 .car{position:relative;background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.05);display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;text-decoration:none;color:inherit}
 .car:hover{transform:translateY(-6px);box-shadow:var(--sh)}
 .car:hover .view{text-decoration:underline}
-.car-img{height:150px;background:linear-gradient(160deg,#fff 0%,#E1E1E1 100%);display:grid;place-items:center;position:relative}
-.car-img .emoji{font-size:56px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.15))}
-.tag-avail{position:absolute;top:10px;left:10px;background:#0A0A0A;color:var(--white);font-size:11px;font-weight:600;padding:4px 9px;border-radius:999px}
+/* Car list image: bari aur poori dikhe (crop nahi) */
+.car-img{height:230px;background:linear-gradient(160deg,#fff 0%,#E1E1E1 100%);display:grid;place-items:center;position:relative;padding:12px;overflow:hidden}
+.car-img img{width:100%;height:100%;object-fit:contain;display:block}
+.car-img .emoji{font-size:72px;filter:drop-shadow(0 8px 10px rgba(0,0,0,.15))}
+.tag-avail{position:absolute;top:10px;left:10px;background:#0A0A0A;color:var(--white);font-size:11px;font-weight:600;padding:4px 9px;border-radius:999px;z-index:1}
 .tag-avail.busy{background:var(--red)}
 .tag-dark,.tag-red,.badge{position:absolute;top:-12px;right:20px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;color:#fff}
 .tag-dark{background:#101010}
@@ -300,6 +302,7 @@ img,svg{max-width:100%;display:block}
 .crumbs a:hover{color:var(--red)}
 .car-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;background:#fff;border-radius:20px;padding:24px;box-shadow:var(--sh)}
 .car-stage{background:linear-gradient(160deg,#fff,#E2E2E2);border-radius:16px;height:220px;display:grid;place-items:center}
+.car-stage img{width:100%;height:100%;object-fit:contain}
 .emoji-lg{font-size:110px;filter:drop-shadow(0 16px 18px rgba(0,0,0,.25))}
 .car-main h1{font-family:var(--serif);font-style:italic;font-size:clamp(24px,4vw,38px);margin:4px 0 8px}
 .car-main .kicker{color:var(--red)}
@@ -346,16 +349,19 @@ img,svg{max-width:100%;display:block}
 .foot a:hover{color:var(--gold)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding:16px 18px;font-size:12.5px;text-align:center}
 
-/* ===== Dialog ===== */
-.dlg{border:0;border-radius:20px;padding:0;width:min(860px,calc(100% - 24px));max-height:calc(100vh - 24px);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+/* ===== Dialog (View Details) ===== */
+.dlg{border:0;border-radius:20px;padding:0;width:min(980px,calc(100% - 24px));max-height:calc(100vh - 24px);overflow:auto;box-shadow:0 30px 80px rgba(0,0,0,.35)}
 .dlg::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(3px)}
 .dlg[open]{animation:pop .3s ease}
 @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:none}}
 .dlg-head{display:flex;justify-content:space-between;align-items:flex-start;padding:20px 22px 0}
 .dlg-head h2{font-family:var(--serif);font-style:italic;font-size:22px;margin-top:2px}
 .x{border:0;background:#EFEFEF;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;line-height:1;flex-shrink:0}
-.dlg-body{display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:18px 22px 22px}
-.dlg-img{height:180px;border-radius:14px;background:linear-gradient(160deg,#EFEFEF,#D2D2D2);display:grid;place-items:center;font-size:70px;align-self:start}
+.dlg-body{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;padding:18px 22px 22px;align-items:start}
+/* Details image: bari aur poori dikhe */
+.dlg-img{height:380px;border-radius:14px;background:linear-gradient(160deg,#fff,#D2D2D2);display:grid;place-items:center;padding:14px;overflow:hidden}
+.dlg-img img{width:100%;height:100%;object-fit:contain;display:block}
+.dlg-img .emoji{font-size:110px}
 .specs{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .specs li{background:#EFEFEF;border-radius:10px;padding:10px 12px;font-size:12.5px;color:var(--muted)}
 .specs b{display:block;color:var(--ink);font-size:14px}
@@ -376,6 +382,7 @@ img,svg{max-width:100%;display:block}
   .foot-in{grid-template-columns:1fr 1fr}
   .hero-card{display:none}
   .cars{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dlg-img{height:320px}
 }
 
 /* ===== Responsive: mobile ===== */
@@ -454,8 +461,9 @@ img,svg{max-width:100%;display:block}
   .seg-btn{padding:7px 9px;font-size:12.5px}
   .seg-btn small{font-size:11px}
 
-  /* Cars */
-  .car-img{height:120px}
+  /* Cars: list image bari */
+  .car-img{height:220px;padding:10px}
+  .car-img .emoji{font-size:64px}
   .car-body{padding:12px}
   .car-top h3{font-size:15px}
   .car-price{font-size:14px}
@@ -473,7 +481,7 @@ img,svg{max-width:100%;display:block}
   /* Car page */
   .car-page{padding-top:12px}
   .car-hero{padding:14px;gap:16px}
-  .car-stage{height:160px}
+  .car-stage{height:200px}
   .emoji-lg{font-size:76px}
   .car-main h1{font-size:22px}
   .car-main .lead{font-size:13px}
@@ -486,12 +494,13 @@ img,svg{max-width:100%;display:block}
   .book-card h3{font-size:18px}
   .rates th,.rates td{padding:9px 10px;font-size:12.5px}
 
-  /* Dialog */
+  /* Dialog (View Details): image bari */
   .dlg{width:calc(100% - 20px)}
   .dlg-head{padding:14px 14px 0}
   .dlg-head h2{font-size:18px}
   .dlg-body{padding:12px 14px 16px;gap:14px}
-  .dlg-img{height:130px;font-size:52px}
+  .dlg-img{height:260px;padding:10px}
+  .dlg-img .emoji{font-size:84px}
   .specs li{font-size:11.5px;padding:8px 10px}
   .specs b{font-size:13px}
 
