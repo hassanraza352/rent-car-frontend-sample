@@ -20,6 +20,7 @@
   --serif: 'Playfair Display', Georgia, serif;
   --sans: Inter, system-ui, sans-serif;
   --head: Sora, system-ui, sans-serif;
+  --line: #E4E4E4;
 }
 
 /* ===== Base ===== */
@@ -118,22 +119,66 @@ img,svg{max-width:100%;display:block}
 .hero-card p{margin-top:14px;color:#D9D9D9;font-size:14px}
 
 /* ===== Booking ===== */
-.booking{background:var(--white);color:var(--ink);border-radius:18px;padding:20px;box-shadow:0 24px 50px rgba(0,0,0,.25);display:grid;gap:12px}
-.booking label{display:grid;gap:5px;font-size:12.5px;font-weight:600;color:var(--muted)}
-.booking select,.booking input,.field select,.dates-bar input,.dates-row input{border:1.5px solid var(--grey-2);border-radius:10px;padding:10px 11px;font-size:14px;background:var(--white);color:var(--ink);width:100%}
-.booking select:focus,.booking input:focus{outline:none;border-color:var(--green)}
+.booking{background:var(--white);color:var(--ink);border-radius:18px;padding:20px;box-shadow:0 24px 50px rgba(0,0,0,.25);display:grid;gap:14px}
+.booking label{display:grid;gap:6px;font-size:11.5px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:var(--grey);border-radius:12px;padding:4px;margin-bottom:6px}
-.seg-btn{border:0;background:transparent;padding:10px 12px;border-radius:9px;font-weight:600;cursor:pointer;color:var(--muted);display:grid;gap:2px;text-align:left;font-size:14px}
+.seg-btn{border:0;background:transparent;padding:10px 12px;border-radius:9px;font-weight:600;cursor:pointer;color:var(--muted);display:grid;gap:2px;text-align:left;font-size:14px;transition:background .2s,color .2s}
 .seg-btn small{font-weight:500;color:var(--muted);font-size:12px}
 .seg-btn.on{background:var(--green);color:var(--white);box-shadow:0 6px 14px rgba(0,0,0,.25)}
 .seg-btn.on small{color:#D6D6D6}
 .seg-btn.on[data-type="driver"]{background:var(--red)}
-.field{display:grid;gap:5px;font-size:12.5px;font-weight:600;color:var(--muted);margin-top:14px}
-.field select{width:100%}
+
+/* ===== Form controls: select + date inputs ===== */
+.booking select,.booking input,
+.field select,
+.dates-bar input,.dates-row input,
+.dates-bar select,.dates-row select{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:46px;
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  padding:0 14px;
+  font-size:14px;font-weight:500;
+  color:var(--ink);
+  background-color:#FAFAFA;
+  transition:border-color .2s,box-shadow .2s,background-color .2s;
+  color-scheme:light;
+}
+.booking select,.field select,.dates-bar select,.dates-row select{
+  padding-right:40px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23111111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 14px center;
+  background-size:12px 8px;
+  cursor:pointer;
+}
+.booking select:hover,.booking input:hover,.field select:hover,
+.dates-bar input:hover,.dates-row input:hover,.dates-bar select:hover,.dates-row select:hover{
+  border-color:#BDBDBD;background-color:#fff;
+}
+.booking select:focus,.booking input:focus,.field select:focus,
+.dates-bar input:focus,.dates-row input:focus,.dates-bar select:focus,.dates-row select:focus{
+  outline:none;border-color:var(--red);background-color:#fff;box-shadow:0 0 0 4px rgba(204,8,2,.12);
+}
+/* Date input ka calendar icon */
+.dates-bar input[type="date"]::-webkit-calendar-picker-indicator,
+.dates-row input[type="date"]::-webkit-calendar-picker-indicator{
+  opacity:.55;cursor:pointer;padding:4px;border-radius:6px;transition:opacity .2s,background .2s;
+}
+.dates-bar input[type="date"]::-webkit-calendar-picker-indicator:hover,
+.dates-row input[type="date"]::-webkit-calendar-picker-indicator:hover{opacity:1;background:#EFEFEF}
+.dates-bar input[type="date"]::-webkit-datetime-edit{padding:0}
+
+/* Date fields row */
 .dates-bar{display:flex;gap:10px}
-.dates-bar label,.dates-row label{display:grid;gap:4px;font-size:12px;font-weight:600;color:var(--muted)}
+.dates-bar label,.dates-row label{display:grid;gap:6px;font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
 .dates-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dates-bar>label,.dates-row>label{flex:1;min-width:0}
+
+/* Field (car select etc.) */
+.field{display:grid;gap:6px;font-size:11px;font-weight:700;color:var(--muted);margin-top:14px;text-transform:uppercase;letter-spacing:.06em}
+.field select{width:100%}
 .chips{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
 
 /* ===== Strip ===== */
@@ -281,7 +326,11 @@ img,svg{max-width:100%;display:block}
 .book-card.featured{background:#101010;color:#fff;border-color:#101010}
 .book-card.featured>p,.book-card.featured li{color:#D6D6D6}
 .book-card.featured .field{color:#BDBDBD}
-.book-card.featured .field select{background:#222;border-color:#333;color:#fff}
+.book-card.featured .field select{
+  background-color:#1A1A1A;border-color:#333;color:#fff;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+.book-card.featured .field select:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(204,8,2,.25)}
 .book-card .btn{margin-top:auto}
 .book-card .field + .btn{margin-top:18px}
 
@@ -301,7 +350,7 @@ img,svg{max-width:100%;display:block}
 .crumbs{font-size:12.5px;color:var(--muted);margin-bottom:14px}
 .crumbs a:hover{color:var(--red)}
 .car-hero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;background:#fff;border-radius:20px;padding:24px;box-shadow:var(--sh)}
-.car-stage{background:linear-gradient(160deg,#fff,#E2E2E2);border-radius:16px;height:220px;display:grid;place-items:center}
+.car-stage{background:linear-gradient(160deg,#fff,#E2E2E2);border-radius:16px;height:220px;display:grid;place-items:center;padding:12px;overflow:hidden}
 .car-stage img{width:100%;height:100%;object-fit:contain}
 .emoji-lg{font-size:110px;filter:drop-shadow(0 16px 18px rgba(0,0,0,.25))}
 .car-main h1{font-family:var(--serif);font-style:italic;font-size:clamp(24px,4vw,38px);margin:4px 0 8px}
@@ -320,22 +369,41 @@ img,svg{max-width:100%;display:block}
 .total{margin:14px 0;font-size:14px;color:var(--muted)}
 .total b{color:#101010;font-size:17px;font-family:var(--head)}
 .car-grid .btn-red{width:100%}
-.legend{display:flex;gap:14px;font-size:12.5px;color:var(--muted);flex-wrap:wrap;margin-bottom:10px}
+
+/* ===== Legend ===== */
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted);flex-wrap:wrap;margin-bottom:14px}
 .legend span{display:flex;align-items:center;gap:6px}
 .sw{display:inline-block;width:12px;height:12px;border-radius:4px}
-.sw.free{background:#E9E9E9}
+.sw.free{background:#EFEFEF;border:1px solid var(--grey-2)}
 .sw.booked{background:var(--red)}
 .sw.picked{background:#141414}
-.calendars{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.month h4{font-size:14px;margin-bottom:8px}
+.sw.range{background:#F3E1E1}
+
+/* ===== Calendar ===== */
+.calendars{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.month{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 12px 12px}
+.month h4{font-family:var(--head);font-size:14px;font-weight:700;margin:0 0 12px;text-align:center;letter-spacing:.01em}
 .grid-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:12.5px}
-.grid-cal .wd{color:var(--muted);font-weight:600;font-size:10.5px;padding-bottom:2px}
-.day{padding:7px 0;border-radius:7px;background:#EFEFEF;font-weight:600}
-.day.blank{background:transparent}
-.day.past{color:#B5B5B5;background:transparent;font-weight:500}
-.day.booked{background:var(--red);color:#fff}
-.day.picked{outline:2px solid #141414;outline-offset:-2px}
-.back-row{margin-top:20px}
+.grid-cal .wd{color:#9A9A9A;font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;padding-bottom:6px}
+.day{
+  display:grid;place-items:center;
+  min-height:34px;
+  border-radius:10px;
+  background:#F6F6F6;
+  font-weight:600;color:var(--ink);
+  cursor:pointer;
+  transition:background .15s,color .15s,transform .15s;
+  user-select:none;
+}
+.day:hover{background:#E9E9E9;transform:translateY(-1px)}
+.day.blank{background:transparent;cursor:default;transform:none}
+.day.past{color:#C4C4C4;background:transparent;font-weight:500;cursor:not-allowed;transform:none}
+.day.booked{background:var(--red);color:#fff;cursor:not-allowed;transform:none}
+.day.range{background:#F3E1E1;color:#A70702;border-radius:0}
+.day.picked{background:#141414;color:#fff;box-shadow:0 6px 14px rgba(0,0,0,.2);transform:none}
+.day.picked:hover{background:#000}
+
+.back-row{margin-top:22px}
 .small-foot{margin-top:auto}
 .wa-note{text-align:center;margin-top:16px;font-family:var(--serif);font-style:italic;font-size:16px;color:var(--muted)}
 .wa-note a{color:var(--red);font-weight:700}
@@ -358,7 +426,6 @@ img,svg{max-width:100%;display:block}
 .dlg-head h2{font-family:var(--serif);font-style:italic;font-size:22px;margin-top:2px}
 .x{border:0;background:#EFEFEF;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;line-height:1;flex-shrink:0}
 .dlg-body{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;padding:18px 22px 22px;align-items:start}
-/* Details image: bari aur poori dikhe */
 .dlg-img{height:380px;border-radius:14px;background:linear-gradient(160deg,#fff,#D2D2D2);display:grid;place-items:center;padding:14px;overflow:hidden}
 .dlg-img img{width:100%;height:100%;object-fit:contain;display:block}
 .dlg-img .emoji{font-size:110px}
@@ -374,7 +441,7 @@ img,svg{max-width:100%;display:block}
 
 /* ===== Responsive: tablet ===== */
 @media (max-width:980px){
-  .hero-in,.split,.loc,.price-grid,.dlg-body,.car-hero,.car-grid,.book-grid,.calendars{grid-template-columns:1fr}
+  .hero-in,.split,.loc,.price-grid,.dlg-body,.car-hero,.car-grid,.book-grid{grid-template-columns:1fr}
   .grid-4{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr 1fr}
   .strip-in{grid-template-columns:1fr 1fr;row-gap:12px}
@@ -383,6 +450,7 @@ img,svg{max-width:100%;display:block}
   .hero-card{display:none}
   .cars{grid-template-columns:repeat(2,minmax(0,1fr))}
   .dlg-img{height:320px}
+  .calendars{grid-template-columns:1fr 1fr}
 }
 
 /* ===== Responsive: mobile ===== */
@@ -392,7 +460,7 @@ img,svg{max-width:100%;display:block}
   .sec{padding:48px 0}
   .head{margin-bottom:22px}
 
-  /* Buttons: chote */
+  /* Buttons */
   .btn{padding:9px 14px;font-size:13px;border-radius:10px;gap:6px}
   .btn-sm{padding:6px 11px;font-size:12px;border-radius:8px}
   .hero .btn-red{padding:10px 18px;font-size:13px}
@@ -454,14 +522,25 @@ img,svg{max-width:100%;display:block}
   .head-row{align-items:flex-start}
 
   /* Booking */
-  .booking{padding:14px}
-  .booking select,.booking input,.field select,.dates-bar input,.dates-row input{padding:8px 10px;font-size:13px}
+  .booking{padding:16px;gap:12px}
+  .booking select,.booking input,.field select,
+  .dates-bar input,.dates-row input,.dates-bar select,.dates-row select{height:42px;font-size:13px;padding-left:12px}
+  .booking select,.field select,.dates-bar select,.dates-row select{padding-right:34px;background-position:right 12px center}
   .dates-bar{flex-direction:column}
-  .dates-row{grid-template-columns:1fr}
+  .dates-row{grid-template-columns:1fr 1fr;gap:8px}
   .seg-btn{padding:7px 9px;font-size:12.5px}
   .seg-btn small{font-size:11px}
+  .booking label,.dates-bar label,.dates-row label,.field{font-size:10.5px}
 
-  /* Cars: list image bari */
+  /* Calendar mobile */
+  .calendars{grid-template-columns:1fr;gap:12px}
+  .month{padding:12px 10px 10px;border-radius:14px}
+  .grid-cal{gap:3px;font-size:11.5px}
+  .grid-cal .wd{font-size:9.5px;padding-bottom:4px}
+  .day{min-height:30px;border-radius:8px}
+  .legend{gap:10px;font-size:11.5px}
+
+  /* Cars */
   .car-img{height:220px;padding:10px}
   .car-img .emoji{font-size:64px}
   .car-body{padding:12px}
@@ -487,14 +566,11 @@ img,svg{max-width:100%;display:block}
   .car-main .lead{font-size:13px}
   .panel{padding:16px}
   .panel h2{font-size:16px}
-  .calendars{gap:12px}
-  .grid-cal{gap:3px;font-size:11px}
-  .day{padding:5px 0;border-radius:6px}
   .book-card{padding:18px 16px}
   .book-card h3{font-size:18px}
   .rates th,.rates td{padding:9px 10px;font-size:12.5px}
 
-  /* Dialog (View Details): image bari */
+  /* Dialog */
   .dlg{width:calc(100% - 20px)}
   .dlg-head{padding:14px 14px 0}
   .dlg-head h2{font-size:18px}
@@ -515,6 +591,7 @@ img,svg{max-width:100%;display:block}
   .strip-in{grid-template-columns:1fr 1fr}
   .specs{grid-template-columns:1fr}
   .chips .btn{width:100%}
+  .dates-row{grid-template-columns:1fr}
 }
 
 /* ===== Reduced motion ===== */
@@ -522,3 +599,24 @@ img,svg{max-width:100%;display:block}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
+
+
+/* ===== Subtle red boundary override ===== */
+.booking select,.booking input,
+.field select,
+.dates-bar input,.dates-row input,
+.dates-bar select,.dates-row select{
+  border:2px solid rgba(204,8,2,.35);
+}
+.booking select:hover,.booking input:hover,.field select:hover,
+.dates-bar input:hover,.dates-row input:hover,
+.dates-bar select:hover,.dates-row select:hover{
+  border-color:rgba(204,8,2,.6);
+}
+.booking select:focus,.booking input:focus,.field select:focus,
+.dates-bar input:focus,.dates-row input:focus,
+.dates-bar select:focus,.dates-row select:focus{
+  border-color:var(--red);
+}
+.month{border:2px solid rgba(235, 13, 6, 0.25)}
+.book-card.featured .field select{border-color:rgba(204,8,2,.45)}
