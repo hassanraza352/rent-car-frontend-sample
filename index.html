@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Buraak | Rent a Car in Lahore, Self Drive & With Driver</title>
+<meta name="description" content="Al Buraak rents cars in Lahore. Self drive or with driver. Sedans and SUVs, clear daily rates, and booking on WhatsApp.">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <img class="loader-logo" src="assets/logo.png" alt="">
+  <div class="loader-road"><span class="loader-car">🚗</span></div>
+  <div class="loader-text">Getting the road ready...</div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand"><img src="assets/logo.png" alt="Al Buraak logo" class="logo-img"></a>
+    <nav class="menu" id="menu">
+      <a href="#fleet">Fleet</a>
+      <a href="#why">Why us</a>
+      <a href="#book">Book</a>
+      <a href="#pricing">Rates</a>
+      <a href="#location">Location</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-red btn-sm" href="https://wa.me/923000000000" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- Intro -->
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div class="hero-copy reveal">
+      <p class="kicker">About Al Buraak</p>
+      <h1>Car rental in Lahore, built on trust.</h1>
+      <p class="lead">Al Buraak is a Lahore car rental company for families, professionals, event guests and travellers. Choose a self drive car or a car with an experienced driver. Every car is checked before handover, and every price is written clearly before you confirm.</p>
+      <div class="hero-actions">
+        <a class="btn btn-red" href="#fleet">See our cars</a>
+        <a class="btn btn-ghost" href="#book">Self drive or with driver</a>
+      </div>
+      <ul class="hero-points">
+        <li>Sedans and SUVs</li>
+        <li>Self drive or with driver</li>
+        <li>Book on WhatsApp, no login</li>
+      </ul>
+    </div>
+    <!-- <div class="hero-card reveal" aria-hidden="true">
+      <div class="hero-car">🚗</div>
+      <p>Pick-up in Gulberg, DHA, Johar Town and the Airport</p>
+    </div> -->
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap strip-in">
+    <div><b>12</b><span>Cars in Lahore</span></div>
+    <div><b>Same day</b><span>Delivery in most areas</span></div>
+    <div><b>24/7</b><span>WhatsApp support</span></div>
+    <div><b>Fixed</b><span>Daily rate, no hidden fees</span></div>
+  </div>
+</section>
+
+<!-- Why -->
+<section class="sec" id="why">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="kicker">Why choose us</p>
+      <h2>Simple rules we follow on every booking</h2>
+    </div>
+    <div class="grid-4">
+      <article class="feature reveal"><span class="ico">✓</span><h3>Checked before every trip</h3><p>Oil, tyres, brakes and AC are checked before handover, and we share a photo report on WhatsApp.</p></article>
+      <article class="feature reveal"><span class="ico">₨</span><h3>Clear pricing</h3><p>The daily rate you see is the rate you pay. Fuel and driver charges are written in the quote first.</p></article>
+      <article class="feature reveal"><span class="ico">👤</span><h3>Trained drivers</h3><p>Our drivers know Lahore's roads, arrive on time and can plan airport or wedding schedules.</p></article>
+      <article class="feature reveal"><span class="ico">⏱</span><h3>Quick booking</h3><p>No account or app. Pick a car, send one WhatsApp message and we confirm the details with you.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- Fleet -->
+<section class="sec sec-grey" id="fleet">
+  <div class="wrap">
+    <div class="head head-row reveal">
+      <div>
+        <p class="kicker">Our fleet</p>
+        <h2>Select a car</h2>
+        <p class="sub">Open any car to see its specs, rates and availability calendar.</p>
+      </div>
+      <div class="filters">
+        <div class="dates-bar">
+          <label>From<input type="date" id="fromDate" value="2026-11-16"></label>
+          <label>To<input type="date" id="toDate" value="2026-11-19"></label>
+        </div>
+        <!-- <div class="chips" role="group" aria-label="Filter cars">
+          <button class="chip on" data-filter="all">All</button>
+          <button class="chip" data-filter="Sedan">Sedans</button>
+          <button class="chip" data-filter="SUV">SUVs</button>
+        </div> -->
+      </div>
+    </div>
+    <div class="cars" id="cars"></div>
+  </div>
+</section>
+
+<!-- Book with or without driver -->
+<section class="sec" id="book">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="kicker">Book now</p>
+      <h2>Self drive or with driver</h2>
+      <p class="sub">Choose a car and a rental type, then book on WhatsApp. We confirm the total and pick-up time with you.</p>
+    </div>
+    <div class="book-grid">
+      <article class="book-card reveal">
+        <span class="tag-dark">Option 1</span>
+        <h3>Self drive</h3>
+        <p>You drive the car yourself. Bring a valid driving license and your CNIC.</p>
+        <ul>
+          <li>Driving license required</li>
+          <li>Refundable security deposit</li>
+          <li>Fuel returned at the same level</li>
+        </ul>
+        <label class="field">Select car
+          <select class="car-select" data-type="self"></select>
+        </label>
+        <a class="btn btn-black btn-block book-btn" data-type="self" href="#" target="_blank" rel="noopener">Book now on WhatsApp</a>
+      </article>
+      <article class="book-card featured reveal">
+        <span class="tag-red">Most booked</span>
+        <h3>With driver</h3>
+        <p>An experienced driver takes care of the car. Ideal for weddings, events, airport trips and long days.</p>
+        <ul>
+          <li>Driver included in the quote</li>
+          <li>Hourly rate for short trips</li>
+          <li>Outstation trips with fixed quote</li>
+        </ul>
+        <label class="field">Select car
+          <select class="car-select" data-type="driver"></select>
+        </label>
+        <a class="btn btn-red btn-block book-btn" data-type="driver" href="#" target="_blank" rel="noopener">Book now on WhatsApp</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><p class="wa-note">Prefer to talk first? WhatsApp us on <a href="https://wa.me/923000000000">+92 300 0000000</a></p></div>
+
+<!-- Pricing -->
+<section class="sec sec-grey" id="pricing">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="kicker">Rates</p>
+      <h2>Daily rates in PKR</h2>
+      <p class="sub">Final quote is confirmed on WhatsApp based on your dates and route.</p>
+    </div>
+    <div class="rates reveal">
+      <table>
+        <thead><tr><th>Car</th><th>Category</th><th>Self drive / day</th><th>With driver / day</th></tr></thead>
+        <tbody id="rateRows"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- How -->
+<section class="sec sec-dark" id="how">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="kicker">How it works</p>
+      <h2>Four steps from choosing to driving</h2>
+    </div>
+    <ol class="steps">
+      <li class="reveal"><span>1</span><h3>Select a car</h3><p>Open the car and check the dates that are free.</p></li>
+      <li class="reveal"><span>2</span><h3>Send a message</h3><p>Tap Book now on WhatsApp. The details are filled in for you.</p></li>
+      <li class="reveal"><span>3</span><h3>Confirm the quote</h3><p>We confirm the total, pick-up point and time with you.</p></li>
+      <li class="reveal"><span>4</span><h3>Pick up and go</h3><p>Bring your CNIC and license, check the car together and start.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Areas -->
+<section class="sec">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="kicker">Service areas</p>
+      <h2>We deliver across Lahore</h2>
+      <p class="sub">Choose a pick-up area when you book. Delivery to your home, office or the airport is available for a small extra fee.</p>
+      <div class="tags">
+        <span>Gulberg</span><span>DHA</span><span>Johar Town</span><span>Model Town</span><span>Bahria Town</span><span>Lahore Airport</span><span>Mall Road</span><span>Wapda Town</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <ul class="check">
+        <li><b>Airport pick-up and drop-off</b><span>We track the flight time so the driver is ready when you land.</span></li>
+        <li><b>Weddings and events</b><span>Clean, well-kept cars for family functions.</span></li>
+        <li><b>Outstation trips</b><span>Trips from Lahore to nearby cities with a fixed quote.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Location -->
+<section class="sec sec-grey" id="location">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="kicker">Find us</p>
+      <h2>Our Lahore office</h2>
+    </div>
+    <div class="loc">
+      <div class="map" aria-label="Animated map of Gulberg, Lahore">
+        <svg viewBox="0 0 640 400" role="img" aria-label="Map of Gulberg, Lahore">
+          <rect width="640" height="400" fill="#E6E6E6"/>
+          <path class="park" d="M40 60h160v110H40z"/>
+          <path class="park" d="M430 250h170v100H430z"/>
+          <g class="road">
+            <path d="M0 200 H640"/><path d="M320 0 V400"/>
+            <path d="M0 90 C160 120 300 60 640 110"/>
+            <path d="M120 0 L220 400"/><path d="M500 0 L430 400"/>
+          </g>
+          <path class="route" d="M80 330 C180 300 230 240 320 200 S480 140 560 90"/>
+          <circle class="ping" cx="320" cy="200" r="10"/>
+          <g class="pin" transform="translate(320 200)"><circle r="16" fill="#E10600"/><circle r="6" fill="#fff"/></g>
+          <text x="340" y="182" class="label">Al Buraak Office</text>
+          <text x="80" y="350" class="label muted">Gulberg III</text>
+          <text x="470" y="290" class="label muted">Main Boulevard</text>
+        </svg>
+        <div class="map-badge">Gulberg III, Lahore</div>
+      </div>
+      <div class="loc-info reveal">
+        <h3>Al Buraak Office</h3>
+        <p>Office address, Main Boulevard, Gulberg III, Lahore, Pakistan</p>
+        <dl>
+          <dt>Phone</dt><dd>+92 300 0000000</dd>
+          <dt>WhatsApp</dt><dd>+92 300 0000000</dd>
+          <dt>Email</dt><dd>info@alburaak.pk</dd>
+          <dt>Hours</dt><dd>Mon to Sat, 9 AM to 7 PM<br>Sunday, WhatsApp only</dd>
+        </dl>
+        <a class="btn btn-black" href="https://maps.google.com/?q=Gulberg+III+Lahore" target="_blank" rel="noopener">Open in Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq">
+  <div class="wrap narrow">
+    <div class="head reveal">
+      <p class="kicker">Questions</p>
+      <h2>Frequently asked</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal"><summary>What documents do I need?</summary><p>A valid CNIC or passport, and a driving license for self drive. We keep copies on file for the trip only.</p></details>
+      <details class="reveal"><summary>Is there a mileage limit?</summary><p>Daily rentals include a fair daily distance. Extra kilometres are charged at a fixed rate, shown in your quote.</p></details>
+      <details class="reveal"><summary>Can I change my dates after booking?</summary><p>Yes, if the car is free. Message us on WhatsApp at least 12 hours before pick-up.</p></details>
+      <details class="reveal"><summary>What if the car breaks down?</summary><p>Call or WhatsApp us right away. We send a replacement car or a recovery vehicle as soon as possible.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <img src="assets/logo.png" alt="Al Buraak" class="logo-img logo-light">
+      <p>Car rental in Lahore. Self drive or with driver.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="#fleet">Fleet</a><a href="#book">Book</a><a href="#pricing">Rates</a><a href="#faq">FAQ</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="https://wa.me/923000000000" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="tel:+923000000000">+92 300 0000000</a>
+      <a href="mailto:info@alburaak.pk">info@alburaak.pk</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">© 2026 Al Buraak. All rights reserved.</div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
