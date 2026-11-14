@@ -10,7 +10,7 @@
   document.title = `${car.name} | Al Buraak`;
   $("#crumb").textContent = car.name;
 
-  const MONTHS = [[2026, 10, "November 2026"], [2026, 11, "December 2026"]];
+  const MONTHS = [[2026, 10, "November 2026"]];
 
   function calendarHtml() {
     const wd = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(d => `<div class="wd">${d}</div>`).join("");
